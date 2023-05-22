@@ -3,9 +3,9 @@ from rest_framework import generics, viewsets
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from .models import Hockey, Player, Trener, Staff, Category, Post, Prof
+from .models import Hockey, Player, Trener, Staff, Category, Post, Prof, Posts, Guide, Articles
 from .serializers import HockeySerializer, PlayerSerializer, TrenerSerializer, StaffSerializer, CategorySerializer, \
-    PostSerializer, ProfSerializer
+    PostSerializer, ProfSerializer, PostsSerializer, GuideSerializer, ArticlesSerializer
 
 
 class HockeyViewSet(viewsets.ModelViewSet):
@@ -41,3 +41,18 @@ class PostViewSet(viewsets.ModelViewSet):
 class ProfViewSet(viewsets.ModelViewSet):
     queryset = Prof.objects.all()
     serializer_class = ProfSerializer
+
+
+class PostsViewSet(viewsets.ModelViewSet):
+    queryset = Posts.objects.all()
+    serializer_class = PostsSerializer
+
+
+class GuideViewSet(viewsets.ModelViewSet):
+    queryset = Guide.objects.all()
+    serializer_class = GuideSerializer
+
+
+class ArticlesViewSet(viewsets.ModelViewSet):
+    queryset = Articles.objects.all()
+    serializer_class = ArticlesSerializer

@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import Hockey, Player, Trener, Staff, Category, Post, Prof
+from .models import Hockey, Player, Trener, Staff, Category, Post, Prof, Posts, Guide, Articles
 
 
 class HockeySerializer(serializers.ModelSerializer):
@@ -42,4 +42,22 @@ class PostSerializer(serializers.ModelSerializer):
 class ProfSerializer(serializers.ModelSerializer):
     class Meta:
         model = Prof
+        fields = "__all__"
+
+
+class PostsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Posts
+        fields = "__all__"
+
+
+class GuideSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Guide
+        fields = "__all__"
+
+
+class ArticlesSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Articles
         fields = "__all__"

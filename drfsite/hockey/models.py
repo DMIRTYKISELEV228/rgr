@@ -44,11 +44,12 @@ class Trener(models.Model):
     name = models.CharField(max_length=255)
     surname = models.CharField(max_length=255)
     content = models.TextField(blank=True)
+    img = models.URLField()
     Idpost = models.ForeignKey('Post', on_delete=models.PROTECT, null=True)
 
 
 class Post(models.Model):
-    post = models.CharField(max_length=255)
+    post = models.CharField(max_length=255, db_index=True)
 
     def __str__(self):
         return self.post
@@ -58,11 +59,34 @@ class Staff(models.Model):
     name = models.CharField(max_length=255)
     surname = models.CharField(max_length=255)
     content = models.TextField(blank=True)
-    Idprof = models.ForeignKey('Prof', on_delete=models.PROTECT, null=True)
+    img = models.URLField()
+    idprof = models.ForeignKey('Prof', on_delete=models.PROTECT, null=True)
 
 
 class Prof(models.Model):
-    prof = models.CharField(max_length=255)
+    type = models.CharField(max_length=100, db_index=True)
 
     def __str__(self):
-        return self.prof
+        return self.type
+
+
+class Guide(models.Model):
+    name = models.CharField(max_length=255)
+    surname = models.CharField(max_length=255)
+    content = models.TextField(blank=True)
+    img = models.URLField()
+    idprof = models.ForeignKey('Posts', on_delete=models.PROTECT, null=True)
+
+
+class Posts(models.Model):
+    type = models.CharField(max_length=100, db_index=True)
+
+    def __str__(self):
+        return self.type
+
+
+class Articles(models.Model):
+    img = models.URLField()
+    title = models.CharField(max_length=255)
+    content = models.CharField(max_length=255)
+
