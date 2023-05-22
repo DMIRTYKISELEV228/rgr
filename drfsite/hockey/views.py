@@ -32,9 +32,11 @@ class CategoryViewSet(viewsets.ModelViewSet):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
 
+
 class PostViewSet(viewsets.ModelViewSet):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
+
 
 class ProfViewSet(viewsets.ModelViewSet):
     queryset = Prof.objects.all()
