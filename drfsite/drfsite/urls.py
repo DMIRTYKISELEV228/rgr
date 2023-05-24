@@ -16,6 +16,9 @@ router.register(r'post', PostViewSet)
 router.register(r'posts', PostsViewSet)
 router.register(r'guide', GuideViewSet)
 router.register(r'articles', ArticlesViewSet)
+router.register(r'pressservice', PressServiceViewSet)
+router.register(r'profpress', ProfPressViewSet)
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
